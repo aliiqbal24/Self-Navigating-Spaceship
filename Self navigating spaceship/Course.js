@@ -1,4 +1,4 @@
-class Road{
+class Course{
     constructor(x,width,laneCount=3){
         this.x=x;
         this.width=width;
