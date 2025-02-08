@@ -1,5 +1,5 @@
 # Self-Navigating-Spaceship
-*resume project- I built a Self Navigating Spaceship Simulation in JavaScript by building a neural network from scratch, also this project uses NO LIBRARIES, just some really cool math and physics
+I built a Self Navigating Spaceship Simulation in JavaScript by building a neural network from scratch, also this project uses NO LIBRARIES, just some really cool math and physics
 
 A quick Demo can be found Here: https://drive.google.com/file/d/1cYqugIbMLVMGOod2L6vpqbE_cz-J4OCu/view?usp=sharing
 Also If you want to run it on your own, simply downlod the folder and run the index html file on a live server
