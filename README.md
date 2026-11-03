@@ -1,21 +1,43 @@
-# Self-Navigating-Spaceship
-I built a Self Navigating Spaceship Simulation in JavaScript by building a neural network from scratch, also this project uses NO LIBRARIES, just some really cool math and physics
+# Self-Navigating Spaceship
 
-A quick Demo can be found Here: https://drive.google.com/file/d/1cYqugIbMLVMGOod2L6vpqbE_cz-J4OCu/view?usp=sharing
-Also If you want to run it on your own, simply downlod the folder and run the index html file on a live server
+A browser simulation of 400 spaceships navigating an asteroid course, with ray-cast sensors, small neural networks, and a live visualization of the leading ship's network. Built in JavaScript and Canvas without a machine-learning library.
 
-Heres what you are seeing the demo:
--Initailly, 400 (or the amount of your choice) spaceships are on a course that is full of asteroids. 
-- They are all equiped with Raycasting sensors and "brain" which is a neural network that reacts to obstructions to the rays
-- Through a genetic model, each ship is equiped with slightly differented ranges of "reactiveness"
-- As they advance through the course, the fittest few survive
-- By pressing the save button, I create a bias to those "genes" allowing the children, to still be unique and potentially fitter, but be more simalar to the previous run
-- By pressing the delete button I can create a bias try a noticably different approach
+**[Open the simulation](https://aliiqbal24.github.io/Self-Navigating-Spaceship/)** · [Recorded demo](https://drive.google.com/file/d/1cYqugIbMLVMGOod2L6vpqbE_cz-J4OCu/view?usp=sharing)
 
-  This project was a rollercoaster to build and I learnt so much about javascript and machine learning
-  Please feel free to contact me for any questions or suggestions, ali.j.iqbal24@gmail.com
+![Spaceship course and live neural-network visualization](docs/images/simulation.jpg)
 
+## The experiment
 
+I wanted to understand the connection between sensing, decision-making, and selection by making it visible. Each ship receives sensor readings and uses a feed-forward network to choose its controls. The leading ship is highlighted alongside its network.
 
+Selection is manual: save the leading brain, then reload to spawn a population of mutated descendants. This is an interactive evolutionary experiment, rather than gradient-based training or a claim of general autonomous navigation.
 
+## Try it locally
 
+Requires Python 3, or any static HTTP server:
+
+```bash
+python -m http.server 8080 --directory "Self navigating spaceship"
+```
+
+Open <http://localhost:8080>.
+
+- **Save brain:** store the leading network in this browser's local storage. Reload to create its descendants.
+- **Clear saved brain:** remove the saved network. Reload for a fresh random population.
+- The course animates automatically. On narrow screens, the network moves below the course; scroll to inspect it.
+
+## How it fits together
+
+| Part | Responsibility |
+| --- | --- |
+| `sensor.js` | Ray casting and obstacle readings |
+| `network.js` | Feed-forward decisions and weight/bias mutation |
+| `ship.js`, `Road.js` | Movement, collisions, and course boundaries |
+| `visualizer.js` | Network drawing |
+| `main.js` | Population, selection, persistence, and animation |
+
+## Limits and lessons
+
+The course is fixed, populations are random, and selection depends on the person running the simulation. Progress on this course does not establish generalization. The useful part is seeing how a small change to weights or sensor inputs changes behavior.
+
+The implementation uses familiar educational self-driving simulation patterns; its source is provided for exploration, not as a novel learning algorithm. Licensed under [Apache 2.0](LICENSE).

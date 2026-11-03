@@ -50,10 +50,12 @@ animate();
 function save(){
     localStorage.setItem("bestBrain",
         JSON.stringify(bestship.brain));
+    document.getElementById("saveStatus").textContent="Brain saved. Reload to evolve.";
 }
 
 function disshipd(){
     localStorage.removeItem("bestBrain");
+    document.getElementById("saveStatus").textContent="Saved brain cleared. Reload to start fresh.";
 }
 
 function generateships(N){
